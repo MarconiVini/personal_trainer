@@ -1,0 +1,17 @@
+index
+
+%h1 Bem vindo ao sistema administrativo do website !
+%h2 Aqui poderá criar, editar e selecionar o nível de acesso de cada administrador
+- if @admin != nil
+  %table
+    %tr
+      %th{colspan:2}
+        Listando administradores
+    - @admin.each do |a|
+      %tr
+        %td
+          = a.name
+        %td
+          = a.email
+
+=link_to "Novo Administrador", new_administrador_admin_path

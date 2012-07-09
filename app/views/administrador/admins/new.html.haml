@@ -1,0 +1,37 @@
+%h1 Criar um novo administrador
+
+=form_for [:administrador, @admin] do |f|
+  %table
+    %tr
+      %th{colspan:2}
+        Criar novo administrador
+    %tr
+      %td
+        =f.label :name
+      %td
+        =f.text_field :name
+    %tr
+      %td
+        =f.label :email
+      %td
+        =f.text_field :email
+    %tr
+      %td
+        =f.label :password, "Senha"
+      %td
+        =f.text_field :password    
+    %tr
+      %td
+        =f.label :password_confirmation
+      %td
+        =f.text_field :password_confirmation
+    %tr
+      %td    
+        =f.label :admin_level
+      %td
+        =select_tag(:admin_level, options_for_select(@admin_level))
+    %tr
+      %td
+        
+      %td
+        =f.submit "Criar novo Admin"
