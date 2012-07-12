@@ -8,7 +8,7 @@ PersonalTrainer::Application.routes.draw do
     resources :admins
   end
   
-  root :to => 'static_pages#index'
+  root :to => 'administrador/admins#index'
 # The priority is based upon order of creation:
 # first created -> highest priority.
 

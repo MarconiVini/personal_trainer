@@ -1,5 +1,3 @@
-index
-
 %h1 Bem vindo ao sistema administrativo do website !
 %h2 Aqui poderá criar, editar e selecionar o nível de acesso de cada administrador
 - if @admin != nil
@@ -7,11 +5,42 @@ index
     %tr
       %th{colspan:2}
         Listando administradores
+      %th 
+        Nivel de Acesso 
+      %th
+        Criado em
+      %th
+        Modificado em 
+      %th
+        Editar
+      %th
+        Excluir      
     - @admin.each do |a|
       %tr
         %td
           = a.name
         %td
-          = a.email
-
+          = mail_to a.email, a.email
+        %td{align: "center"}
+          = a.admin_level  
+        %td
+          = distance_of_time_in_words(a.created_at, Time.now, true)           
+        %td 
+          = distance_of_time_in_words(a.updated_at, Time.now, true)
+        %td
+          = link_to "Editar Admin", edit_administrador_admin_path(a.id) 
+        %td 
+          = link_to "Excluir Admin", administrador_admin_path(a.id), method: :delete, confirm: "Esta certo que deseja deletar o Admin #{a.name}?"
+        
+        
 =link_to "Novo Administrador", new_administrador_admin_path
+
+
+
+
+
+
+
+
+
+

@@ -11,10 +11,6 @@
     %div{id: 'cols', class: 'box'}
       =render 'layouts/menu'  
       %div{id: 'content', class: 'box'}
-        - if flash[:notice]
-          .msg.info= flash[:notice]
-        - elsif flash[:warning]
-          .msg.warning= flash[:warning]
         = yield
         <br />
         <br />

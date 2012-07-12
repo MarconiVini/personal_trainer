@@ -11,6 +11,12 @@
     %strong
       =link_to 'Logout', '#', id: 'logout'
 %div{id: 'menu', class: 'box'}
+  %div.alert_log
+    - if flash[:notice]
+      .msg.info= flash[:notice]
+    - elsif flash[:warning]
+      .msg.warning= flash[:warning]
+    
   %ul{class: 'box f-right'}
     %li
       %a

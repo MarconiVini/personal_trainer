@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+en:
+  time:
+    formats:
+      short:
+        "arrrround %d'dayshhh"

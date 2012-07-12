@@ -15,13 +15,14 @@ $(document).ready(function(){
 		if ($(this).hasClass('ico-col1')) {
 			$(this).removeClass('ico-col1').addClass('ico-col2').attr('title', 'Mostrar Menu Principal');
 			$('#aside').animate({width: 'toggle'});
-			$('#cols').css('padding-left','15px');
+			$('#content').css('margin-left','15px');
 		}else{
 			$(this).removeClass('ico-col2').addClass('ico-col1').attr('title', 'Mostrar apenas uma coluna');
 			$('#aside').animate({width: 'toggle'});
-			$('#cols').css('padding-left','0');			
+			$('#content').css('margin-left','0');			
 		}
 		//$(this).removeClass();
 		console.log('test');
 	});
+	$('.msg.info').fadeIn(400).fadeOut(5000);
 });
