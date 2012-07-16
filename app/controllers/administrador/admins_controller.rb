@@ -9,11 +9,14 @@ class Administrador::AdminsController < ApplicationController
   end
 
   def create
-    @admin = Admin.new(params[:admin])
-    @admin.admin_level = params[:admin_level]
-    @admin.save
-    flash[:notice] = "O Admin \"#{@admin.name}\" foi criado com sucesso !"
-    redirect_to :action => :index
+    @admin_level = Admin.admin_levels
+    @admin = Admin.new(params[:admin])    
+    if @admin.save
+      flash[:notice] = "O Admin \"#{@admin.name}\" foi criado com sucesso !"
+      redirect_to :action => :index
+    else
+      render :action => :new, admin_level: @admin_level
+    end
   end
 
   def show
@@ -24,14 +27,18 @@ class Administrador::AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     @admin_level = Admin.admin_levels
   end
-  
+
   def update
     @admin = Admin.find(params[:id])
-    @admin.update_attributes!(params[:admin])
-    flash[:notice] = "O Admin \"#{@admin.name}\" foi editado com sucesso !"
-    redirect_to :action => :index
+    @admin_level = Admin.admin_levels
+    if @admin.update_attributes(params[:admin])
+      flash[:notice] = "O Admin \"#{@admin.name}\" foi editado com sucesso !"
+      redirect_to :action => :index
+    else
+      render :action => :edit, admin_level: @admin_level
+    end
   end
-  
+
   def destroy
     @admin = Admin.find(params[:id])
     @admin.destroy
@@ -40,8 +47,4 @@ class Administrador::AdminsController < ApplicationController
   end
 
 end
-
-
-
-
 

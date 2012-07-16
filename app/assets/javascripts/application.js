@@ -24,5 +24,5 @@ $(document).ready(function(){
 		//$(this).removeClass();
 		console.log('test');
 	});
-	$('.msg.info').fadeIn(400).fadeOut(5000);
+	$('.msg.info').fadeIn(400).fadeOut(10000);
 });

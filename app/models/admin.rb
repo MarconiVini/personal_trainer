@@ -1,6 +1,6 @@
 class Admin < ActiveRecord::Base
   def self.admin_levels
-    [['Administrador superior', 1], ["Administrador de Personals", 2], ["Administrador de dados", 3] ]
+    [['Escolha um nivel de administrador', ''], ['Administrador superior', 1], ["Administrador de Personals", 2], ["Administrador de dados", 3] ]
   end
   
   attr_accessible :name, :email, :password, :password_confirmation, :admin_level

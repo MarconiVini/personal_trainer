@@ -44,7 +44,7 @@ group :test do
   gem 'spork', '0.9.0'
 end
 
-
+gem 'dynamic_form'
 gem 'haml'
 
 

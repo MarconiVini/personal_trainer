@@ -1,4 +1,7 @@
-%h1 Criar um novo administrador
+%h1 
+  Criar um novo administrador
+
+=render 'form_validation'
 
 =form_for [:administrador, @admin] do |f|
   %table
@@ -29,7 +32,7 @@
       %td    
         =f.label :admin_level
       %td
-        =select_tag(:admin_level, options_for_select(@admin_level), {:prompt => 'Escolha um nivel', index: nil} )
+        =select(:admin, :admin_level, options_for_select(@admin_level))
     %tr
       %td
         

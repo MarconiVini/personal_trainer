@@ -275,9 +275,31 @@ MESSAGES
     min-width: 82%;
 }
 
+#error_explanation{
+	background: none repeat scroll 0 0 #FFD8D8;
+    margin-bottom: 10px;
+    padding: 2px 20px;
+    border:1px solid #FF0000;
+}
 
+#error_explanation h2{
+	color: #000;
+}
 
+#error_explanation h2 ul li{
+	background-position: 2px 4px;
+    color: #FF4949;
+    font-size: 11px;
+}
 
+.field_with_errors label{
+	border-bottom:2px solid #FF0000;
+}
+
+.field_with_errors input{
+	background:#FFD8D8;
+	border:1px solid #FF0000;
+}
 
 
 
