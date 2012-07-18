@@ -1,5 +1,13 @@
 %h1 Bem vindo ao sistema administrativo do website !
 %h2 Aqui poderá criar, editar e selecionar o nível de acesso de cada administrador
+  
+=link_to(new_administrador_admin_path, {class: 'ExpandButton'}) do
+  %span 
+    Novo Administrador
+
+%br
+%br
+
 - if @admin != nil
   %table
     %tr
@@ -24,7 +32,8 @@
         %td{align: "center"}
           = a.admin_level  
         %td
-          = distance_of_time_in_words(a.created_at, Time.now, true)           
+          %span{title: "#{a.created_at.utc}"}
+            = distance_of_time_in_words(a.created_at, Time.now, true)           
         %td 
           = distance_of_time_in_words(a.updated_at, Time.now, true)
         %td
@@ -32,8 +41,10 @@
         %td 
           = link_to "Excluir Admin", administrador_admin_path(a.id), method: :delete, confirm: "Esta certo que deseja deletar o Admin #{a.name}?"
         
-        
-=link_to "Novo Administrador", new_administrador_admin_path
+%br     
+=link_to(new_administrador_admin_path, {class: 'ExpandButton'}) do
+  %span 
+    Novo Administrador
 
 
 

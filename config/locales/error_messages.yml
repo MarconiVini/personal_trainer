@@ -1,10 +1,4 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  welcome: <b>welcome!</b>
-  hello_html: <b>hello!</b>  
-  # Erros do rails model
   errors:
     # The default format to use in full error messages.
     format: "%{attribute} %{message}"
@@ -12,15 +6,15 @@ en:
     # The values :model, :attribute and :value are always available for interpolation
     # The value :count is available when applicable. Can be used for pluralization.
     messages:
-      inclusion: "não está incluído na lista"
-      exclusion: "é reservado"
-      invalid: "está invalido"
-      confirmation: "não confere com %{attribute}"
+      inclusion: "is not included in the list"
+      exclusion: "is reserved"
+      invalid: "is invalid"
+      confirmation: "doesn't match %{attribute}"
       accepted: "must be accepted"
       empty: "can't be empty"
-      blank: "não pode ser branco"
+      blank: "Nao pode ser branco"
       too_long: "is too long (maximum is %{count} characters)"
-      too_short: "está muito curto (o mínimo é %{count} characteres)"
+      too_short: "is too short (minimum is %{count} characters)"
       wrong_length: "is the wrong length (should be %{count} characters)"
       not_a_number: "is not a number"
       not_an_integer: "must be an integer"

@@ -156,13 +156,78 @@ html>body #content {margin-left:0; overflow:hidden; min-height:200px;}
 
 
 /* =============================================================================
+	Button expansible
+*/
 
-	STYLE.CSS
-	version: 1.6
-	updated: 2009-03-06, 13:00 GMT+1
+a.ExpandButton{
+background: transparent url('oval-gray-left.gif') no-repeat top left;
+display: block;
+float: left;
+font: normal 13px Tahoma; /* Change 13px as desired */
+line-height: 16px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 24px) */
+height: 24px; /* Height of button background height */
+padding-left: 11px; /* Width of left menu image */
+text-decoration: none;
+}
 
-============================================================================= */
+a:link.ExpandButton, a:visited.ExpandButton, a:active.ExpandButton{
+color: #494949; /*button text color*/
+}
 
+a.ExpandButton span{
+background: transparent url('oval-gray-right.gif') no-repeat top right;
+display: block;
+padding: 4px 11px 4px 0; /*Set 11px below to match value of 'padding-left' value above*/
+}
+
+a.ExpandButton:hover{ /* Hover state CSS */
+background-position: bottom left;
+}
+
+a.ExpandButton:hover span{ /* Hover state CSS */
+background-position: bottom right;
+color: black;
+}
+
+.ExpandButton{ /* Container you can use to surround a CSS button to clear float */
+overflow: hidden; /*See: http://www.quirksmode.org/css/clearing.html */
+}
+
+/* Botão azul */
+.ButtonBlue{
+	background: transparent url('oval-blue-left.gif') no-repeat top left !important;
+}
+
+.ButtonBlue span{
+	background: transparent url('oval-blue-right.gif') no-repeat top right !important;
+}
+
+/* Botão Verde */
+.ButtonGreen{
+	background: transparent url('oval-green-left.gif') no-repeat top left !important;
+}
+
+.ButtonGreen span{
+	background: transparent url('oval-green-right.gif') no-repeat top right !important;
+}
+
+/* Botão Vermelho */
+.ButtonRed{
+	background: transparent url('oval-red-left.gif') no-repeat top left !important;
+}
+
+.ButtonRed span{
+	background: transparent url('oval-red-right.gif') no-repeat top right !important;
+}
+
+/* Botão Laranja */
+.ButtonOrange{
+	background: transparent url('oval-orange-left.gif') no-repeat top left !important;
+}
+
+.ButtonOrange span{
+	background: transparent url('oval-orange-right.gif') no-repeat top right !important;
+}
 /* =============================================================================
 HTML - styles
 ============================================================================= */
