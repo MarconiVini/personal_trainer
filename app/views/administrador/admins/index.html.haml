@@ -32,10 +32,11 @@
         %td{align: "center"}
           = a.admin_level  
         %td
-          %span{title: "#{a.created_at.utc}"}
-            = distance_of_time_in_words(a.created_at, Time.now, true)           
-        %td 
-          = distance_of_time_in_words(a.updated_at, Time.now, true)
+          %span{title: "#{l a.created_at}"}
+            = distance_of_time_in_words(a.created_at, Time.now, true)       
+        %td
+          %span{title: "#{l a.updated_at}"} 
+            = distance_of_time_in_words(a.updated_at, Time.now, true)
         %td
           = link_to "Editar Admin", edit_administrador_admin_path(a.id) 
         %td 
@@ -45,7 +46,6 @@
 =link_to(new_administrador_admin_path, {class: 'ExpandButton'}) do
   %span 
     Novo Administrador
-
 
 
 
