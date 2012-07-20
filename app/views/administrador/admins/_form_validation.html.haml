@@ -1,8 +1,7 @@
 -if @admin.errors.any?
   #error_explanation
     %h2
-      = pluralize(@admin.errors.count, "error") 
-      prohibited this user from being saved:
+      = "Devido à #{pluralize(@admin.errors.count, 'erro')}. Não foi possível salvar o Administrador."
       %ul
         - @admin.errors.full_messages.each do |msg|
           %li
