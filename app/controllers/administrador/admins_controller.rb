@@ -1,6 +1,6 @@
 class Administrador::AdminsController < ApplicationController
   before_filter :require_authen                                             #Todos as requisições http nesse controle necessita authenticação
-  before_filter :require_authorization, :only => [:destroy, :create]
+  before_filter :require_authorization, :only => [:destroy, :create, :update]
   layout "masters/administrador", except: ['login']
   #layout "masters/log_out", only: ['login']
   def index
