@@ -1,0 +1,2 @@
+module Administrador::AdminSessionHelper
+end

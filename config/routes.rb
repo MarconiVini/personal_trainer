@@ -1,13 +1,13 @@
 PersonalTrainer::Application.routes.draw do
-  #resources :admin
-  
-
   namespace :administrador do
   # Directs /admin/products/* to Admin::ProductsController
   # (app/controllers/admin/products_controller.rb)
     resources :admins
   end
   
+  match 'administrador' => 'administrador/admin_session#new'
+  match '/administrador/create' => 'administrador/admin_session#create', via: :post
+  match '/administrador/destroy' => 'administrador/admin_session#destroy', via: :get
   root :to => 'administrador/admins#index'
 # The priority is based upon order of creation:
 # first created -> highest priority.

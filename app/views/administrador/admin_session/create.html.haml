@@ -1,0 +1,19 @@
+%div.alert_log
+  - if flash[:notice]
+    .msg.info= flash[:notice]
+  - elsif flash[:warning]
+    .msg.warning= flash[:warning]
+%br
+%br
+%br
+%br
+
+create deletar
+%br
+%br
+-if @admin
+  =@admin.email
+  %br
+  =@admin.name
+  %br
+  %br

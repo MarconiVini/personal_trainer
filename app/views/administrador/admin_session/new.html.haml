@@ -1,0 +1,35 @@
+%h1 
+  Bem vindo a área administrativa
+
+%h2
+  Para acessar digite as credenciais abaixo:
+
+%div.alert_log
+  - if flash[:notice]
+    .msg.info= flash[:notice]
+  - elsif flash[:warning]
+    .msg.warning= flash[:warning]
+  - elsif flash[:error]
+    .msg.error= flash[:error]
+
+%div{style: "clear:both;"}
+
+%br
+
+=form_tag("administrador/create", :method => "post") do
+  %table
+    %tr
+      %td
+        =label_tag(:login, "Login")
+      %td
+        =text_field_tag(:login)
+    %tr
+      %td
+        =label_tag(:senha, "Senha")
+      %td
+        =password_field_tag(:senha)
+    %tr
+      %td
+      
+      %td
+        =submit_tag("Login")
