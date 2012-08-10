@@ -76,7 +76,7 @@ class Administrador::AdminsController < ApplicationController
   
   def require_authorization
     admin = Admin.find(session[:admin_id])
-    if admin.admin_level != "1"
+    if admin.admin_level.to_s != "1"
       flash[:error] = "O Administrador #{admin.name} nao tem autorizacao para deletar ou criar novos Administradores"
       redirect_to "/administrador/admins"
     end    
