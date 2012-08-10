@@ -8,8 +8,13 @@
     Administrador:
     %strong
       =link_to @admin_auth.name, '#'
+    Nivel de acesso:
+    %strong 
+      = @admin_auth.admin_level
     %strong
       =link_to 'Logout', {:controller=>"administrador/admin_session", :action=>"destroy"}, id: 'logout'
+    
+    
 %div{id: 'menu', class: 'box'}
   %div.alert_log
     - if flash[:notice]
