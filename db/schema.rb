@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120722140205) do
+ActiveRecord::Schema.define(:version => 20120823015822) do
 
   create_table "admin_sessions", :force => true do |t|
     t.string   "id_session_hash"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(:version => 20120722140205) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "admin_level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "personals", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,27 @@
+%h1 
+  ="Editar o Personal Trainer: #{@personal.name}"
+
+=render 'form_validation'
+
+=form_for [:administrador, @personal] do |f|
+  %table
+    %tr
+      %th{colspan:2}
+        Atualize as informações do Personal Trainer: 
+        %i
+          =@personal.name
+    %tr
+      %td
+        =f.label :name
+      %td
+        =f.text_field :name
+    %tr
+      %td
+        =f.label :email
+      %td
+        =f.text_field :email
+    %tr
+      %td
+        
+      %td
+        =f.submit "Editar Personal"

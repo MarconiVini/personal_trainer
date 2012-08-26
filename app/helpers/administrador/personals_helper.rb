@@ -1,0 +1,2 @@
+module Administrador::PersonalsHelper
+end

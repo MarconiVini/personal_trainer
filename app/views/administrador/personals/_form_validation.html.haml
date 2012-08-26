@@ -1,0 +1,8 @@
+-if @personal.errors.any?
+  #error_explanation
+    %h2
+      = "Devido à #{pluralize(@personal.errors.count, 'erro')}. Não foi possível salvar o Personal."
+      %ul
+        - @personal.errors.full_messages.each do |msg|
+          %li
+            = msg

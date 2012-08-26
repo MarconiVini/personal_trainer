@@ -1,0 +1,40 @@
+%h1 Bem vindo ao sistema administrativo do website !
+%h2 Aqui poderá criar, editar e selecionar o nível de acesso de cada Personal Trainers
+
+%br
+%br
+
+- if @personals.empty?
+  %p Nenhum resultado encontrado
+- else
+  %table
+    %tr
+      %th{colspan:2}
+        Listando os Personal Trainers
+      %th
+        Editar
+      %th
+        Excluir 
+    - @personals.each do |a|
+      %tr
+        %td
+          = a.name
+        %td
+          = mail_to a.email, a.email
+        %td
+          = link_to "Editar Personal", edit_administrador_personal_path(a.id) 
+        %td 
+          = link_to "Excluir Personal", administrador_personal_path(a.id), method: :delete, confirm: "Esta certo que deseja deletar o Admin #{a.name}?"
+%br     
+=link_to(new_administrador_personal_path, {class: 'ExpandButton'}) do
+  %span 
+    Novo Personal Trainer
+
+
+
+
+
+
+
+
+

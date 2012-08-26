@@ -3,6 +3,7 @@ PersonalTrainer::Application.routes.draw do
   # Directs /admin/products/* to Admin::ProductsController
   # (app/controllers/admin/products_controller.rb)
     resources :admins
+    resources :personals
   end
   
   match 'administrador' => 'administrador/admin_session#new'

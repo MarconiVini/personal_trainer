@@ -1,0 +1,25 @@
+%h1 
+  Criar um novo administrador
+
+=render 'form_validation'
+
+=form_for [:administrador, @personal] do |f|
+  %table
+    %tr
+      %th{colspan:2}
+        Preencha os dados para criar um novo Admin
+    %tr
+      %td
+        =f.label :name
+      %td
+        =f.text_field :name
+    %tr
+      %td
+        =f.label :email
+      %td
+        =f.text_field :email        
+    %tr
+      %td
+        
+      %td
+        =f.submit "Criar novo Personal"

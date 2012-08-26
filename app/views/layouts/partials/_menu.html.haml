@@ -3,7 +3,6 @@
     %p#logo
       =link_to image_tag('logo.gif', title: 'Home page index'), root_path
   %ul.box
-    %li
-      =link_to 'Home', root_path
-    %li#submenu-active
-      =link_to "Visualizar administradores", administrador_admins_path
+    -#Este menu é gerado no application_helper com a ajuda do metodo "main_menu"
+    -main_menu.each do |menu|
+      =menu.html_safe

@@ -1,7 +1,5 @@
 class Admin < ActiveRecord::Base
-  def self.admin_levels
-    [['Escolha um nivel de administrador', ''], ['Administrador superior', 1], ["Administrador de Personals", 2], ["Administrador de dados", 3] ]
-  end
+  
   
   attr_accessible :name, :email, :password, :password_confirmation, :admin_level
   attr_accessor :password_confirmation
@@ -15,5 +13,19 @@ class Admin < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
   validates :admin_level, presence: true
+  
+  
+  def self.admin_levels
+    [['Escolha um nivel de administrador', ''], ['Administrador superior', 1], ["Administrador de Personals", 2], ["Administrador de dados", 3] ]
+  end
+  
+  def authorization_test(nivel_acesso)
+    #verifica se o admin possui a autorizacao indicada    
+    if self.admin_level.to_s <= nivel_acesso.to_s
+      return true
+    else
+      return false
+    end
+  end
   
 end
