@@ -17,9 +17,29 @@
       %td
         =f.label :email
       %td
-        =f.text_field :email        
+        =f.text_field :email
     %tr
       %td
-        
+        =f.label :url
+        *
+      %td
+        =f.text_field :url, class: "UrlSugestao"
+    %tr
+      %td
+        -if @autorizacao == "1"
+          Criar URL com apelidos:
+          =check_box("admin", "autorizated")
       %td
         =f.submit "Criar novo Personal"
+-if @links_sugestao != nil
+  %p
+    Escolha uma das opções de URL:       
+  %p
+    - @links_sugestao.each do |link|
+      =link_to("", {class: 'ExpandButton BtnSugestao', style: 'margin-right: 10px;'}) do
+        %span 
+          =link
+
+-else
+  %p
+    ="*O Url será complatado automaticamente"

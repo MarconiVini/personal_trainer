@@ -12,6 +12,8 @@
       %th{colspan:2}
         Listando os Personal Trainers
       %th
+        Listar url
+      %th
         Editar
       %th
         Excluir 
@@ -21,6 +23,8 @@
           = a.name
         %td
           = mail_to a.email, a.email
+        %td
+          = a.url
         %td
           = link_to "Editar Personal", edit_administrador_personal_path(a.id) 
         %td 

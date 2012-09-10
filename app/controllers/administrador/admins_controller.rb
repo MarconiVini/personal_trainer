@@ -1,6 +1,6 @@
 class Administrador::AdminsController < ApplicationController
   before_filter :require_authen                                                                          #Todos as requisições http nesse controle necessita authenticação
-  before_filter :require_authorization_for_admin_creation, :only => [:destroy, :create, :update, :new]   #Requer nivel de autorizacao de administrador
+  before_filter :require_authorization_admin_superior, :only => [:destroy, :create, :update, :new]   #Requer nivel de autorizacao de administrador
   #Ambos os before_filters estão disponiveis no application_controller (visivel em todos os controles do aplicativo)
   
   layout "masters/administrador", except: ['login']

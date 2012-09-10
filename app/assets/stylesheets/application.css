@@ -78,8 +78,8 @@ LAYOUT
 #tray #logout {padding-left:18px; background:url("tray-logout.gif") 0 50% no-repeat; text-transform:uppercase;}
 #tray #switcher {margin-right:15px;}
 #tray #switcher img {display:block; float:left; width:16px; height:16px; border:0;}
-#menu {padding:15px 15px 13px 15px; background:url("menu.gif") 0 0 repeat-x;}
-#menu ul {margin:0; padding:0; list-style-type:none;}
+#menu {padding:15px 15px 13px 15px; background:url("menu.gif") 0 0 repeat-x; height:50px;}
+#menu ul {margin:5px 0 0 0; padding:0; list-style-type:none;}
 #menu ul li {display:inline; margin:0; padding:0;}
 #menu ul li a {float:left; margin-right:5px; padding-left:5px; background:url("menu-left.gif") 0 0 no-repeat; text-decoration:none; cursor:pointer;}
 #menu ul li a span {float:left; display:block; padding:7px 15px 9px 8px; background:url("menu-right.gif") 100% 0 no-repeat;}
@@ -367,8 +367,6 @@ MESSAGES
 	background:#FFD8D8;
 	border:1px solid #FF0000;
 }
-
-
 
 
 

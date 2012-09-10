@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def require_authen
      
      #Verifica se a sessão já dura mais que 10 minutos, em caso positivo ele destroi a sessao fazendo logoff.
-     if session[:last_seen] < 10.minutes.ago
+     if session[:last_seen] < 30.minutes.ago
        redirect_to "/administrador/destroy"
      end
      
@@ -22,9 +22,23 @@ class ApplicationController < ActionController::Base
      end
   end
   
-  def require_authorization_for_admin_creation
+  def require_authorization_admin_superior
     admin = Admin.find(session[:admin_id])
     if admin.authorization_test(1) == false
+      flash[:error] = "O Administrador #{admin.name} nao tem autorizacao para deletar ou criar novos Administradores"
+      redirect_to "/administrador/admins"
+    end    
+  end
+  def require_authorization_admin_dados
+    admin = Admin.find(session[:admin_id])
+    if admin.authorization_test(3) == false
+      flash[:error] = "O Administrador #{admin.name} nao tem autorizacao para deletar ou criar novos Administradores"
+      redirect_to "/administrador/admins"
+    end    
+  end
+  def require_authorization_admin_personals
+    admin = Admin.find(session[:admin_id])
+    if admin.authorization_test(2) == false
       flash[:error] = "O Administrador #{admin.name} nao tem autorizacao para deletar ou criar novos Administradores"
       redirect_to "/administrador/admins"
     end    
