@@ -27,11 +27,12 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
   gem 'guard-rspec', '0.5.5'
   gem 'sqlite3' 
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :test do

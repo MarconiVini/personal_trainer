@@ -19,6 +19,7 @@ class Administrador::PersonalsController < ApplicationController
     if @personal.url.empty?                                                   #Se o url é nulo, caso seja ele mostra as dicas, caso contrario ele tenta salvar
       url_ou_dicas = @personal.testa_url_ou_return_sugestao
       if url_ou_dicas.class == String                                         #Caso seja String significa que que retornou apenas o nome do Personal
+        @personal.url = url_ou_dicas
         if @personal.save
           flash[:notice] = "O Personal \"#{@personal.name}\" foi criado com sucesso !"
           redirect_to :action => :index
@@ -69,8 +70,8 @@ class Administrador::PersonalsController < ApplicationController
   private
   
   def get_autorizacao_apelidos
-    sessao = session[:admin_id]
-    @autorizacao = Admin.find(sessao).admin_level
+    sessao = session[:admin_id].to_s
+    @autorizacao = Admin.find(sessao).admin_level.to_s
   end
   
 end
