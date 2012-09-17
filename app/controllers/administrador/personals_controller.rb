@@ -67,6 +67,7 @@ class Administrador::PersonalsController < ApplicationController
     redirect_to :action => :index
   end
   
+  
   private
   
   def get_autorizacao_apelidos

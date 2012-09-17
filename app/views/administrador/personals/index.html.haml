@@ -14,9 +14,14 @@
       %th
         Listar url
       %th
+        Criado em
+      %th
+        Modificado em
+      %th
         Editar
       %th
         Excluir 
+        
     - @personals.each do |a|
       %tr
         %td
@@ -25,6 +30,12 @@
           = mail_to a.email, a.email
         %td
           = a.url
+        %td
+          %span{title: "#{l a.created_at}"}
+            = distance_of_time_in_words(a.created_at, Time.now, true)    
+        %td
+          %span{title: "#{l a.updated_at}"}
+            = distance_of_time_in_words(a.updated_at, Time.now, true)
         %td
           = link_to "Editar Personal", edit_administrador_personal_path(a.id) 
         %td 

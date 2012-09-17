@@ -6,10 +6,16 @@ PersonalTrainer::Application.routes.draw do
     resources :personals
   end
   
-  match 'administrador' => 'administrador/admin_session#new'
+  match '/administrador' => 'administrador/admin_session#new'
   match '/administrador/create' => 'administrador/admin_session#create', via: :post
   match '/administrador/destroy' => 'administrador/admin_session#destroy', via: :get
   root :to => 'administrador/admins#index'
+  
+  match ':ninja' => 'ninja#index'
+  match ':ninja/new' => 'ninja#new'
+  match ':ninja/*skill' => 'ninja#skill'
+  
+  
 # The priority is based upon order of creation:
 # first created -> highest priority.
 

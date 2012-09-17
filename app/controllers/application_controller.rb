@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   def require_authen
      
      #Verifica se a sessão já dura mais que 10 minutos, em caso positivo ele destroi a sessao fazendo logoff.
-     if session[:last_seen] < 30.minutes.ago
-       redirect_to "/administrador/destroy"
+     if session[:last_seen] != nil
+       if session[:last_seen] < 30.minutes.ago
+         redirect_to "/administrador/destroy"
+       end
      end
      
      #Se a sessão ainda não expirou eu atualizo o tempo da sessão para a hora exata dando novamente 10 minutos para trabalhar logado.
