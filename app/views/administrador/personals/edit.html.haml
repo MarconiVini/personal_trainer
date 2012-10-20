@@ -22,6 +22,14 @@
         =f.text_field :email
     %tr
       %td
-        
+        =f.label :url
+        *
+      %td
+        =f.text_field :url, class: "UrlSugestao"
+    %tr
+      %td
+        -if @autorizacao == "1"
+          Criar URL com apelidos:
+          =check_box("admin", "autorizated")
       %td
         =f.submit "Editar Personal"

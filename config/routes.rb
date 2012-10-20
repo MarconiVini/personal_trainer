@@ -3,7 +3,12 @@ PersonalTrainer::Application.routes.draw do
   # Directs /admin/products/* to Admin::ProductsController
   # (app/controllers/admin/products_controller.rb)
     resources :admins
-    resources :personals
+    resources :personals do
+      member do
+        post 'reativar'
+        post 'desativar'
+      end
+    end
   end
   
   match '/administrador' => 'administrador/admin_session#new'
@@ -11,9 +16,11 @@ PersonalTrainer::Application.routes.draw do
   match '/administrador/destroy' => 'administrador/admin_session#destroy', via: :get
   root :to => 'administrador/admins#index'
   
-  match ':ninja' => 'ninja#index'
-  match ':ninja/new' => 'ninja#new'
-  match ':ninja/*skill' => 'ninja#skill'
+  match ':personal' => 'site/personal#index'
+  
+  #match ':ninja' => 'ninja#index'
+  #match ':ninja/new' => 'ninja#new'
+  #match ':ninja/*skill' => 'ninja#skill'
   
   
 # The priority is based upon order of creation:

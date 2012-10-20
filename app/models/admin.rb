@@ -1,5 +1,5 @@
 class Admin < ActiveRecord::Base
-  
+  has_many :personals 
   
   attr_accessible :name, :email, :password, :password_confirmation, :admin_level
   attr_accessor :password_confirmation

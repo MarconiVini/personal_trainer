@@ -16,6 +16,7 @@ class Administrador::PersonalsController < ApplicationController
   
   def create
     @personal = Personal.new(params[:personal])
+    @personal.admin_id = session[:admin_id]
     if @personal.url.empty?                                                   #Se o url é nulo, caso seja ele mostra as dicas, caso contrario ele tenta salvar
       url_ou_dicas = @personal.testa_url_ou_return_sugestao
       if url_ou_dicas.class == String                                         #Caso seja String significa que que retornou apenas o nome do Personal
@@ -48,25 +49,63 @@ class Administrador::PersonalsController < ApplicationController
   
   def edit
     @personal = Personal.find(params[:id])
+    get_autorizacao_apelidos
   end
   
   def update
-    @personal = Personal.find(params[:id])
-    if @personal.update_attributes(params[:personal])
-      flash[:notice] = "O Personal Trainer \"#{@personal.name}\" foi editado com sucesso !"
-      redirect_to :action => :index
+    @personals = Personal.all
+    #ignore
+    
+    @personal = Personal.find(params[:id])                                    #Busca o personal normal do update
+    url_test = Personal.find_by_url(params[:personal][:url])                  #Busca um personal baseado no novo url
+    if url_test.nil?
+      if @personal.update_attributes(params[:personal])
+        flash[:notice] = "O Personal \"#{@personal.name}\" foi atualizado com sucesso !"
+        redirect_to :action => :index
+      else
+        flash[:notice] = "Ocorreu algum erro tente na atualizacao do Personal: #{@personal.name}"
+        render :action => :edit
+      end
     else
-      render :action => :edit
+      if url_test.id == @personal.id
+        if @personal.update_attributes(params[:personal])
+          flash[:notice] = "O Personal \"#{@personal.name}\" foi atualizado com sucesso !"
+          redirect_to :action => :index
+        else
+          flash[:notice] = "Ocorreu algum erro tente na atualizacao do Personal: #{@personal.name}"
+          render :action => :edit
+        end
+      else
+        flash[:notice] = "O personal #{url_test.name} ja esta usando o url #{url_test.name}, usar um outro url."
+        get_autorizacao_apelidos
+        render :action => :edit
+      end
     end
   end
   
   def destroy
     personal = Personal.find(params[:id])
     personal.destroy
-    flash[:notice] = "O Personal Trainer \"#{personal.name}\" foi deletado com sucesso !"
+    flash[:notice] = "O Personal Trainer \"#{personal.name}\" foi deletado permanetemente!"
     redirect_to :action => :index
   end
   
+  def reativar
+    personal = Personal.find(params[:id])
+    personal.set_to_active
+    personal.save
+    flash[:notice] = "O Personal Trainer \"#{personal.name}\" foi re-ativado com sucesso!"
+    redirect_to :action => :index
+  end
+  
+  def desativar
+    personal = Personal.find(params[:id])
+    personal.set_to_inactive
+    personal.save
+    #personal.destroy
+    flash[:notice] = "O Personal Trainer \"#{personal.name}\" foi inativado com sucesso!"
+    redirect_to :action => :index
+  end
   
   private
   

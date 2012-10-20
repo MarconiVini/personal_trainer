@@ -1,0 +1,18 @@
+%h1 Administrador
+%h2
+  Este é o administrador:  
+  %strong
+    = @admin.name
+%table
+  %tr
+    %th
+      Administradores criados por
+      = @admin.name
+  %tr
+    %th
+      Nome
+  - @admin.personals.each do |personal|
+    %tr
+      %td
+        = personal.name
+    

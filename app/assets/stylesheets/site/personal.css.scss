@@ -1,0 +1,219 @@
+// Place all the styles related to the personal controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {margin:0; padding:0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {border:0; outline:0; vertical-align:baseline; background:transparent;}
+.hidden {position:absolute; left:-1000em; top:-1000em; width:1px; height:1px; overflow:hidden;}
+.noscreen {display:none;}
+.box {min-height:1px;}
+.box:after {display:block; visibility:hidden; clear:both; line-height:0; font-size:0; content:".";}
+.fix {float:none; clear:both; width:0; height:0; margin:0; padding:0; border:0; line-height:0; font-size:0;}
+.f-left {float:left !important;}
+.f-right {float:right !important;}
+.t-left {text-align:left !important;}
+.t-center {text-align:center !important;}
+.t-right {text-align:right !important;}
+.t-justify {text-align:justify !important;}
+.va-top {vertical-align:top !important;}
+.va-middle {vertical-align:middle !important;}
+.va-bottom {vertical-align:bottom !important;}
+.nom {margin:0 !important;}
+.nomt {margin-top:0 !important;}
+.nomb {margin-bottom:0 !important;}
+ul li{list-style:none;}
+body {
+  background: url("bg.gif") repeat scroll center 0 transparent;
+  border-top: 6px solid #292929;
+  color: #292929;
+  font: 14px Arial,Helvetica,sans-serif;
+}
+
+.Main {
+  margin: 0 auto;
+  width: 1000px;
+  position: relative;
+}
+
+.BgImagem {
+  background: url("bg-img.gif") no-repeat scroll 0 0 transparent;
+  height: 6px;
+  left: -152px;
+  position: absolute;
+  top: -6px;
+  width: 150px;
+}
+
+header {
+  overflow: hidden;
+  padding-bottom: 17px;
+  position: relative;
+  width: 100%;
+  z-index: 101;
+}
+
+.Logo {
+  color: #01A5CA;
+  display: block;
+  float: left;
+  font-family: "Trebuchet MS";
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 40px;
+  text-decoration: none;
+  width: 280px;
+}
+
+.Logo span{
+  color: #292929;  
+}
+
+.SocialNetWork{
+    margin-top: 35px;
+    overflow: hidden;
+    text-align: right;
+}
+
+.SocialNetWork a{
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  height: 23px;
+  width: 23px;
+}
+
+.SocialNetWork a.Twitter{
+  background: url("twitter.png") no-repeat scroll 0 0 transparent;
+  margin-left: 7px;
+}
+
+.SocialNetWork a.Twitter:hover, .SocialNetWork a.Facebook:hover{
+  background-position: 0 -23px;
+}
+
+.SocialNetWork a.Facebook{
+  background: url("facebook.png") no-repeat scroll 0 0 transparent;
+}
+
+/* Menu */
+ul.Menu{
+  float: right;
+  margin-top: 39px;
+}
+
+ul.Menu li{
+  float: left;
+  line-height: 20px;
+  margin: 0 0 0 44px;
+}
+
+ul.Menu li a:hover, ul.Menu li.Current a {
+    color: #01A5CA;
+}
+
+ul.Menu li a {
+    color: #292929;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 22px;
+    text-decoration:none;
+}
+
+.BoxShadow{
+    float: left;
+    box-shadow: 0px 0px 5px #dbdbdb;
+    background:#fff;
+    padding: 25px 30px;
+    width:940px;
+}
+
+footer {
+  overflow: hidden;
+  padding: 32px 0 45px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+footer p {
+  color: #1E1E1E;
+}
+
+.ColunaDireita{
+  float:left;
+  width:690px;
+  padding: 0 0 15px 15px;
+}
+
+.ColunaEsquerda{
+  float:left;
+  width:215px;
+  padding: 0 15px 0 0;
+  border-right: 1px solid #DBDBDB;
+}
+
+.ImagemContainer{
+  border: 1px solid #DBDBDB;
+  display: table-cell;
+  height: 190px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  width: 190px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

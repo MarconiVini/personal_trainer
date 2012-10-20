@@ -14,13 +14,18 @@
       %th
         Listar url
       %th
+        Personal ativo?
+      %th
         Criado em
       %th
         Modificado em
       %th
         Editar
       %th
-        Excluir 
+        Inativar/Ativar
+      - if @admin_auth.admin_level == "1"
+        %th
+          Deletar Personal
         
     - @personals.each do |a|
       %tr
@@ -31,6 +36,11 @@
         %td
           = a.url
         %td
+          -if a.active.to_s === "true"  
+            Ativo
+          -else
+            Inativo
+        %td
           %span{title: "#{l a.created_at}"}
             = distance_of_time_in_words(a.created_at, Time.now, true)    
         %td
@@ -39,13 +49,19 @@
         %td
           = link_to "Editar Personal", edit_administrador_personal_path(a.id) 
         %td 
-          = link_to "Excluir Personal", administrador_personal_path(a.id), method: :delete, confirm: "Esta certo que deseja deletar o Admin #{a.name}?"
-%br     
+          -if a.active.to_s === "true"  
+            = link_to "Inativar Personal", desativar_administrador_personal_path(a.id), method: :desativar, confirm: "Esta certo que deseja deletar o Personal #{a.name}?"
+          -else
+            = link_to "Re-ativar Personal", reativar_administrador_personal_path(a.id), method: :reativar, confirm: "Esta certo que deseja reativar o Personal #{a.name}?"
+        - if @admin_auth.admin_level == "1"
+          %td
+            = link_to "Deletar", administrador_personal_path(a.id), method: :delete, confirm: "Esta ação deletará permanentemente o Personal: #{a.name}, está certo disso?"
+%br       
 =link_to(new_administrador_personal_path, {class: 'ExpandButton'}) do
   %span 
     Novo Personal Trainer
 
-
+  
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120826143005) do
+ActiveRecord::Schema.define(:version => 20120930141036) do
 
   create_table "admin_sessions", :force => true do |t|
     t.string   "id_session_hash"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20120826143005) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+    t.boolean  "active"
+    t.integer  "admin_id"
   end
 
 end

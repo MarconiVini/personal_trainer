@@ -1,11 +1,13 @@
 class Personal < ActiveRecord::Base
-  
-  attr_accessible :name, :email, :url
+  belongs_to :admin
+  before_create :default_value
+  attr_accessible :name, :email, :url, :active
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :name, presence: true, length: {minimum: 3}
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+  
   
   def testa_url_ou_return_sugestao
     personal_full_name = self.name
@@ -30,6 +32,18 @@ class Personal < ActiveRecord::Base
     
   end
   
+  def set_to_inactive                                                           #Inativa uma conta de personal
+    self.active = false
+  end
+  
+  def set_to_active                                                             #Re-ativa uma conta de personal
+    self.active = true
+  end
+  
+  def default_value
+    self.active ||= true
+  end
+  
   private 
   
   def generate_url(personal_full_name)
@@ -44,11 +58,8 @@ class Personal < ActiveRecord::Base
       end 
     end
     #depois deste ponto já tenho uma array com todas as dicas das url dos personal trainers.  
-    
     return dicas_de_url
   end
-  
-  
   
 end
 

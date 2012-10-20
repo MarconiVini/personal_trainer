@@ -26,7 +26,7 @@
     - @admin.each do |a|
       %tr
         %td
-          = a.name
+          = link_to a.name, administrador_admin_path(a.id), method: :get
         %td
           = mail_to a.email, a.email
         %td{align: "center"}
