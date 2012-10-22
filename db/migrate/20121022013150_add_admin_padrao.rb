@@ -5,7 +5,7 @@ class AddAdminPadrao < ActiveRecord::Migration
     u.email = "cardosounicamp@gmail.com"
     u.password = 'xtaisax'
     u.password_confirmation = "xtaisax"
-    u.admin_level = 1
+    u.admin_level = '1'
     u.save
   end
 
