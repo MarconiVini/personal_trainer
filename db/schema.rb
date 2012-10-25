@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20121022013150) do
   create_table "admin_sessions", :force => true do |t|
     t.string   "id_session_hash"
     t.integer  "id_admin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "admins", :force => true do |t|
@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(:version => 20121022013150) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "admin_level"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "personals", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "url"
     t.boolean  "active"
     t.integer  "admin_id"
