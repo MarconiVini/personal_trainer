@@ -9,7 +9,11 @@
   %body
     %div{id: 'content', class: 'Main'}
       = render 'layouts/partials/site/header'
-      = yield
+      %div{class: 'BoxShadow'}
+        %div{class: 'ColunaEsquerda'}
+          = render 'layouts/partials/site/coluna_esquerda'
+        %div{class: 'ColunaDireita'}  
+          = yield
       = render 'layouts/partials/site/footer'
       -if Rails.env.development?
         params

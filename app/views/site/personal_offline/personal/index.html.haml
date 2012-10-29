@@ -1,0 +1,5 @@
+%h1 
+  -if @personal.nil?
+    Usuario inativado ou nao existe
+  - else
+    = @personal.name

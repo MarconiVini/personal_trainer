@@ -16,7 +16,9 @@ PersonalTrainer::Application.routes.draw do
   match '/administrador/destroy' => 'administrador/admin_session#destroy', via: :get
   root :to => 'administrador/admins#index'
   
-  match ':personal' => 'site/personal#index'
+
+  match ':personal' => 'site/personal_offline/personal#index'
+  match ':personal/contato' => 'site/personal_offline/personal#contato'
   
   #match ':ninja' => 'ninja#index'
   #match ':ninja/new' => 'ninja#new'

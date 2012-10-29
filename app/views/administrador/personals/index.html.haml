@@ -30,7 +30,7 @@
     - @personals.each do |a|
       %tr
         %td
-          = a.name
+          = link_to a.name, "/#{a.url}"
         %td
           = mail_to a.email, a.email
         %td
