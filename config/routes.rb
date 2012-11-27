@@ -10,16 +10,20 @@ PersonalTrainer::Application.routes.draw do
       end
     end
   end
-  
+  #Login e logout do administrador
   match '/administrador' => 'administrador/admin_session#new'
   match '/administrador/create' => 'administrador/admin_session#create', via: :post
   match '/administrador/destroy' => 'administrador/admin_session#destroy', via: :get
-  root :to => 'administrador/admins#index'
   
-
+  
+  #Para recordar
+  #match '/:personal' => index do personal deslogado
+  #match '/on/:personal' => index do personal logado
+  #match '/on/editor/:personal' => Editar a index do personal Logado usando o Mercury
+  
   match ':personal' => 'site/personal_offline/personal#index'
   match ':personal/contato' => 'site/personal_offline/personal#contato'
-  
+  root :to => 'administrador/admins#index'
   #match ':ninja' => 'ninja#index'
   #match ':ninja/new' => 'ninja#new'
   #match ':ninja/*skill' => 'ninja#skill'
