@@ -1,6 +1,9 @@
 // Place all the styles related to the personal controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$graycolor: #292929;
+
 * {margin:0; padding:0;}
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {border:0; outline:0; vertical-align:baseline; background:transparent;}
 .hidden {position:absolute; left:-1000em; top:-1000em; width:1px; height:1px; overflow:hidden;}
@@ -24,8 +27,8 @@ ul li{list-style:none;}
 body {
   background: url("bg.gif") repeat scroll center 0 transparent;
   border-top: 6px solid #292929;
-  color: #292929;
-  font: 14px Arial,Helvetica,sans-serif;
+  color: $graycolor;
+  font: 14px Helvetica,sans-serif;
 }
 
 .Main {
@@ -51,6 +54,27 @@ header {
   z-index: 101;
 }
 
+.LoginTab{
+  width:100%;
+  height: 38px;
+  background: #292929;
+}
+
+.BotaoLogin{
+  background:   #3F3F3F;
+  height:       38px;
+  width:        38px;
+  float:        right;
+}
+
+.BotaoLogin{
+  background: url("../arrow-down.png") no-repeat scroll center center #1C1C1C;
+}
+
+.BotaoLogin:hover{
+  background-color: #292929;
+}
+
 .Logo {
   color: #01A5CA;
   display: block;
@@ -58,17 +82,77 @@ header {
   font-family: "Trebuchet MS";
   font-size: 30px;
   font-weight: bold;
-  margin-top: 40px;
+  margin-top: 50px;
   text-decoration: none;
   width: 280px;
 }
 
 .Logo span{
-  color: #292929;  
+  color: $graycolor;  
+}
+
+.LoginTab .Content {
+  border: 1px solid #C4C4C4;
+  display: none;
+  height: 140px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 38px;
+  width: 255px;
+  z-index:1;
+}
+
+.LoginTab .Content form{
+  padding: 10px 15px;
+}
+
+.LoginTab .Content table{
+  width: 160px;
+  margin: 0 auto;
+}
+
+.LoginTab .Content label {
+  float:right;
+  padding: 0 5px 2px 0;
+}
+
+.LoginTab .Content input {
+  float:left;
+  width: 160px;
+}
+.LoginTab .Content input.Botao {
+  float:left;
+  width: 70px;
+}
+
+.LoginTab .Content .RadioButtons {
+  height: 25px;
+  margin: 0 auto 5px;
+  width: 160px;
+}
+
+.LoginTab .Content .RadioButtons input{
+  float:left;
+  margin: 3px 4px 0 0;
+}
+
+.LoginTab .Content .RadioButtons label{
+  float:left;
+  padding: 0 15px 0 0;
+}
+
+.Logged {
+  color: #FFFFFF;
+  float: right;
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  height: 22px;
+  padding: 8px 20px;
 }
 
 .SocialNetWork{
-    margin-top: 35px;
+    margin-top: 43px;
     overflow: hidden;
     text-align: right;
 }
@@ -97,13 +181,14 @@ header {
 /* Menu */
 ul.Menu{
   float: right;
-  margin-top: 39px;
+  margin-top: 38px;
 }
 
 ul.Menu li{
   float: left;
   line-height: 20px;
   margin: 0 0 0 44px;
+  position:relative;
 }
 
 ul.Menu li a:hover, ul.Menu li.Current a {
@@ -111,7 +196,7 @@ ul.Menu li a:hover, ul.Menu li.Current a {
 }
 
 ul.Menu li a {
-    color: #292929;
+    color: $graycolor;
     display: inline-block;
     font-size: 17px;
     line-height: 22px;

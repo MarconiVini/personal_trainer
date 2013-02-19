@@ -6,7 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+
 
 $(document).ready(function() {
 	$('#switcher a').click(function(e) {
@@ -25,7 +25,6 @@ $(document).ready(function() {
 			$('#content').css('margin-left', '0');
 		}
 		//$(this).removeClass();
-		console.log('test');
 	});
 	$('.msg.info').fadeIn(1000).delay(10000).fadeOut(3000);
 	$('.msg.error').fadeIn(1000).delay(10000).fadeOut(3000);

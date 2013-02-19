@@ -1,4 +1,15 @@
 PersonalTrainer::Application.routes.draw do
+    namespace :mercury do
+      resources :images
+    end
+
+  mount Mercury::Engine => '/'
+  
+  namespace :on do
+    match ':personal' => 'site/personal_online/personal#index'
+    match ':personal/logoff' => 'site/personal_online/personal#logoff'
+  end
+  
   namespace :administrador do
   # Directs /admin/products/* to Admin::ProductsController
   # (app/controllers/admin/products_controller.rb)
@@ -16,14 +27,22 @@ PersonalTrainer::Application.routes.draw do
   match '/administrador/destroy' => 'administrador/admin_session#destroy', via: :get
   
   
+  
   #Para recordar
   #match '/:personal' => index do personal deslogado
   #match '/on/:personal' => index do personal logado
   #match '/on/editor/:personal' => Editar a index do personal Logado usando o Mercury
+  match '/login/create' => 'site/user_sessions#create', via: :post
   
   match ':personal' => 'site/personal_offline/personal#index'
   match ':personal/contato' => 'site/personal_offline/personal#contato'
+  
+  #match 'on/:personal' => 'site/personal_online/personal#index'
+  #match 'on/:personal/logoff' => 'site/personal_online/personal#logoff'
+  
+  
   root :to => 'administrador/admins#index'
+  
   #match ':ninja' => 'ninja#index'
   #match ':ninja/new' => 'ninja#new'
   #match ':ninja/*skill' => 'ninja#skill'

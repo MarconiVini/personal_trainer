@@ -1,13 +1,16 @@
 class Personal < ActiveRecord::Base
   belongs_to :admin
   before_create :default_value
-  attr_accessible :name, :email, :url, :active
+  attr_accessible :name, :email, :url, :active, :password, :password_confirmation
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
+  has_secure_password
+  
   validates :name, presence: true, length: {minimum: 3}
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
-  
+  validates :password, presence: true, length: {minimum: 6}, on: :create
+  validates :password_confirmation, presence: true, on: :create
   
   def testa_url_ou_return_sugestao
     personal_full_name = self.name

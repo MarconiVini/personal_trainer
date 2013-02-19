@@ -47,5 +47,6 @@ end
 
 gem 'dynamic_form'
 gem 'haml'
+gem 'mercury-rails'
 
-
+gem 'paperclip'

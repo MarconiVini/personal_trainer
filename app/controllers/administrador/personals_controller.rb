@@ -17,6 +17,8 @@ class Administrador::PersonalsController < ApplicationController
   def create
     @personal = Personal.new(params[:personal])
     @personal.admin_id = session[:admin_id]
+    @personal.password = @personal.email
+    @personal.password_confirmation = @personal.email
     if @personal.url.empty?                                                   #Se o url é nulo, caso seja ele mostra as dicas, caso contrario ele tenta salvar
       url_ou_dicas = @personal.testa_url_ou_return_sugestao
       if url_ou_dicas.class == String                                         #Caso seja String significa que que retornou apenas o nome do Personal

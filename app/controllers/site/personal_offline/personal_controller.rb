@@ -7,4 +7,9 @@ class Site::PersonalOffline::PersonalController < ApplicationController
     @personal = Personal.first(:conditions => {url: personal_url, active: true})
   end
   
+  def contato
+    
+  end
+  
+  
 end

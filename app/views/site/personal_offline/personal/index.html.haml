@@ -3,3 +3,5 @@
     Usuario inativado ou nao existe
   - else
     = @personal.name
+    
+= link_to "Editar Página", "/editor" + request.path, id: "edit_link", data: {save_url: "/"}

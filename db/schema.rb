@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022013150) do
+ActiveRecord::Schema.define(:version => 20121205101245) do
 
   create_table "admin_sessions", :force => true do |t|
     t.string   "id_session_hash"
@@ -29,14 +29,24 @@ ActiveRecord::Schema.define(:version => 20121022013150) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "mercury_images", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "personals", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                                                                  :null => false
+    t.datetime "updated_at",                                                                                  :null => false
     t.string   "url"
     t.boolean  "active"
     t.integer  "admin_id"
+    t.string   "password_digest", :default => "$2a$10$KCMgHNeplL2zT5yydIlgGOja48mj8CDR2fasPADdY2K/lJwXeC3LS"
   end
 
 end

@@ -1,15 +1,48 @@
 %div{class: "BgImagem"}
 %header
+  %div{class: 'LoginTab'}
+    .BotaoLogin
+    %div.Content.BoxShadow
+      =form_tag("login/create", :method => "post") do
+        %p{class: "RadioButtons"}
+          =radio_button(:radio, "category", "Aluno", checked: true)
+          =label_tag(:radio_category_aluno, "Aluno")
+          =radio_button(:radio, "category", "Personal")
+          =label_tag(:radio_category_personal, "Personal")
+        %table
+          %tr 
+            %td{style: "text-align: right;"}       
+              =label_tag(:login, "Login")
+            %td  
+              =text_field_tag(:login)
+            %tr
+              %td{style: "text-align: right;"} 
+                =label_tag(:senha, "Senha")
+              %td  
+                =text_field_tag(:senha)
+            %tr
+              %td
+              
+              %td
+                =submit_tag("Login", {class: "Botao"})  
+    - if session[:personal_id]
+      .Logged
+        %span.Nome
+          -unless @personal.nil?  
+            Personal Trainer - 
+            = @personal.name              
+              
   =link_to('#', class: 'Logo') do
     Personal Trainer
     %span
-      Playground
+      Playground    
   %nav
     %div{class: 'SocialNetWork'}
       =link_to '', '#', class: 'Twitter', title: 'Twitter'
       =link_to '', '#', class: 'Facebook', title: 'Facebook'
 
     %ul{class: 'Menu'}
+     
       %li
         =link_to 'Sobre', '#'
       %li
@@ -17,8 +50,7 @@
       %li
         =link_to 'Horários', '#'
       %li
-        =link_to 'Nutrição', '#'
-      %li
         =link_to 'Galeria', '#'
-      %li
-        =link_to 'Contato', :controller => "personal", action: :contato
+      
+        =#link_to 'Contato', :controller => "personal", action: :contato
+          

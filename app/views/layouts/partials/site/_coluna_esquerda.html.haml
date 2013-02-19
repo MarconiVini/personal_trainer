@@ -1,4 +1,5 @@
 #div{class: 'ImagemContainer'}
   imagem do Personal trainer
   %br
-  = @personal.email
+  - unless @personal.nil?
+    = @personal.email
